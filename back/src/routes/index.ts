@@ -12,3 +12,5 @@ router.use(email);
 router.use(halfCheck);
 
 export default router;
+
+// O arquivo [index.ts] é responsável por centralizar todas as ações referentes às  rotas da API. 

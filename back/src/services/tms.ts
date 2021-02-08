@@ -3,10 +3,12 @@ import fs, { promises } from 'fs';
 import request from 'request';
 import conf from '../config/index';
 
-const TMS_CNPJ_URL = conf.externalServices.TMS_CNPJ_URL;
-const TMS_EC_URL = conf.externalServices.TMS_EC_URL;
-const TMS_NMRLOG_URL = conf.externalServices.TMS_NMRLOG_URL;
+const TMS_CNPJ_URL = conf.externalServices.TMS_CNPJ_URL; // Essa URL está dentro de '../config/index'
+const TMS_EC_URL = conf.externalServices.TMS_EC_URL; // Essa URL está dentro de '../config/index'
+const TMS_NMRLOG_URL = conf.externalServices.TMS_NMRLOG_URL; // Essa URL está dentro de '../config/index'
 
+
+//Essa são as configurações/ opções do request
 const options = {
 	method: 'GET',
 	headers: { 'Content-type': 'application/json' },
@@ -16,6 +18,9 @@ const options = {
 
 export class TmsService {
 
+
+	// Esse método está sendo chamado na classe ConsultaController em '../controllers/consultar-tms'; 
+	// Seu objetivo é retornar uma promisse fazendo um request para a URL [TMS_CNPJ_URL] linha 6 
 	public static async listEcByCnpjCpf(doc: string) {
 		return new Promise((resolve, reject) => {
 			

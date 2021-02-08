@@ -5,7 +5,11 @@ import { Terminal } from '../models/tms-terminal';
 import { Request, Response } from 'express';
 
 class ConsultaController {
-	
+
+	/* Esta função asíncrona lista o estabelecimento comercial 
+	com base nos parâmetros passados na rota '/consultar-ec/:cnpjcpf/:flagDigital'
+	no arquivo [tms.router.ts]. 
+	*/
 	public async listEcByCnpjCpf(req: Request, res: Response) {
 	
 		try {
@@ -24,6 +28,12 @@ class ConsultaController {
 			// }
 		
 			let retorno = await TmsService.listEcByCnpjCpf(doc);
+			// Esse retorno espera (await) o resultado de uma consulta (request) em um serviço
+			// externo através de uma URL que fornece os dados sobre o estabelecimento comercial
+			// O método está dentro da classe TmsService em '../services/tms'
+
+
+			// Aqui é tratado os retornos
 			let jsonRetorno = JSON.parse(retorno.toString());
 		
 			if(parseInt(jsonRetorno.CodRetorno) != 0){
@@ -72,7 +82,8 @@ class ConsultaController {
 				ec = zeroEsq + ec;
 				console.log(ec)
 			}
-			let retorno = await TmsService.listNumberLogicByEc(ec);
+ 
+			let retorno = await TmsService.listNumberLogicByEc(ec); //Gerar
 			let jsonRetorno = JSON.parse(retorno.toString());
 			let detalhes = new Array<Detalhe>();
 
@@ -116,6 +127,7 @@ class ConsultaController {
 		}
 		
 	}
+
 
 }
 export default new ConsultaController();
