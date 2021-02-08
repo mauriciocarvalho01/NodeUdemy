@@ -48,6 +48,7 @@ export default {
 	externalServices: {
 		CRC_URL: 'https://api-ti.safracredenciadora.com.br/ces-ctl/consultar-cnpj',
 		TMS_CNPJ_URL: 'http://10.80.16.31/TMS7WebService/api/terminal/WsConsultaEstabelecimentoCNPJ/4',
+		//Essa URL está sendo usada na classe TmsService no método listEcByCnpjCpf()
 		TMS_EC_URL: 'http://10.80.16.31/TMS7WebService/api/terminal/WSConsultaTeminaisEC/4',
 		TMS_NMRLOG_URL: 'http://10.80.16.31/TMS7WebService/api/terminal/WsConsultaTerminal/4',
 		URL_SMS: 'https://api-rest.zenvia360.com.br/services/send-sms',
